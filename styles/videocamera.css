@@ -1,0 +1,18 @@
+.video-processing-camera {
+    padding: 12px 27px 0px;
+    /* margin-top: -50px; */
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+.video-processing-camera h5 {
+    font-size: 18px;
+    color: #100162;
+}
+.logo-wrap.gif-wrap {
+    padding: 20px 20px 20px;
+}
+.inner-distance {
+    position: relative;
+    margin-bottom: 51px;
+}
