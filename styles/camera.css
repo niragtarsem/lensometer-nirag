@@ -130,6 +130,73 @@ p.glass-distance-text {
     margin-bottom: 0px;
 }
 /* 12june */
+/* 14june */
+
+/* .inner-move-mob {
+    animation: zoomInOut 2s ease-in-out 1;
+}
+@keyframes zoomInOut {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.6);
+    }
+    100% {
+      transform: scale(1);
+    }
+  } */
+   /* blink */
+   .greenwarp > img {
+    width: 9px;
+}
+.greenwarp {
+    width: 40px;
+    position: relative;
+    animation: animate 1.5s linear infinite;
+}
+@keyframes animate { 
+    0% { 
+        opacity: 0.3; 
+    } 
+    30% { 
+        opacity: 0.7; 
+    } 
+
+    50% { 
+        opacity: 1; 
+    } 
+    80% { 
+        opacity: 0.8; 
+    } 
+
+    100% { 
+        opacity: 0.3; 
+    } 
+}  
+  /* blink */
+  /* other */
+  /* .greenwarp > img {
+    width: 9px;
+}
+  .greenwarp {
+    width: 40px;
+    position: relative;
+    animation: zoomInOut 2s ease-in-out infinite;
+  -webkit-animation: zoomInOut 2s ease-in-out infinite;
+  }
+  @keyframes zoomInOut {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.); 
+    }
+    100% {
+      transform: scale(1);
+    }
+  } */
+/* 14june */
 
 @media screen and (max-width: 768px) {
     .inner-code {
