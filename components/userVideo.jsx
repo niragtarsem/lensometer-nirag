@@ -107,97 +107,170 @@ const CameraComponent = () => {
 
   // }, [mobiledistance, glassdistance]);
 
-  useEffect(() => {
-    const adjustMobileWidth = () => {
-        if (!glassdistance) {
-            if (mobiledistance >= 48 && mobiledistance <= 52) {
-                setmobilewidth(20);
-                setmobiledistancecorrect(true);
-            } else if (mobiledistance > 52) {
-                if(mobiledistance > 90){
-                  setmobilewidth(3);
-                  const decreaseFactor = (mobiledistance - 90) * 0.184; // Calculate decrease factor
-                  setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
-                }else if(mobiledistance > 80){
-                  setmobilewidth(4);
-                  const decreaseFactor = (mobiledistance - 80) * 0.164; // Calculate decrease factor
-                  setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
-                }else if(mobiledistance > 70){
-                  setmobilewidth(5);
-                  const decreaseFactor = (mobiledistance - 70) * 0.174; // Calculate decrease factor
-                  setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
-                }else if(mobiledistance > 60){
-                  setmobilewidth(6);
-                  const decreaseFactor = (mobiledistance - 60) * 0.154; // Calculate decrease factor
-                  setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
-                }else{
-                  setmobilewidth(7);
-                  const decreaseFactor = (mobiledistance - 52) * 0.184; // Calculate decrease factor
-                  setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
-                }
+//   useEffect(() => {
+//     const adjustMobileWidth = () => {
+//         if (!glassdistance) {
+//             if (mobiledistance >= 48 && mobiledistance <= 52) {
+//                 setmobilewidth(20);
+//                 setmobiledistancecorrect(true);
+//             } else if (mobiledistance > 52) {
+//                 if(mobiledistance > 90){
+//                   setmobilewidth(3);
+//                   const decreaseFactor = (mobiledistance - 90) * 0.184; // Calculate decrease factor
+//                   setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
+//                 }else if(mobiledistance > 80){
+//                   setmobilewidth(4);
+//                   const decreaseFactor = (mobiledistance - 80) * 0.164; // Calculate decrease factor
+//                   setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
+//                 }else if(mobiledistance > 70){
+//                   setmobilewidth(5);
+//                   const decreaseFactor = (mobiledistance - 70) * 0.174; // Calculate decrease factor
+//                   setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
+//                 }else if(mobiledistance > 60){
+//                   setmobilewidth(6);
+//                   const decreaseFactor = (mobiledistance - 60) * 0.154; // Calculate decrease factor
+//                   setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
+//                 }else{
+//                   setmobilewidth(7);
+//                   const decreaseFactor = (mobiledistance - 52) * 0.184; // Calculate decrease factor
+//                   setmobilewidth((prevWidth) => prevWidth - decreaseFactor); // Decrease width based on the factor
+//                 }
                 
                
-            } else if (mobiledistance < 48) {
-                if(mobiledistance <= 22){
-                  setmobilewidth(36)
-                  const increaseFactor = (22 + mobiledistance) * 0.151; // Calculate increase factor
-                  setmobilewidth((prevWidth) => prevWidth + increaseFactor); // Increase width based on the factor
-                }else if(mobiledistance <= 34){
-                  setmobilewidth(24)
-                  const increaseFactor = (34 + mobiledistance) * 0.161; // Calculate increase factor
-                  setmobilewidth((prevWidth) => prevWidth + increaseFactor); // Increase width based on the factor
-                }else if(mobiledistance <= 42){
-                  setmobilewidth(22)
-                  const increaseFactor = (42 + mobiledistance) * 0.171; // Calculate increase factor
-                  setmobilewidth((prevWidth) => prevWidth + increaseFactor); // Increase width based on the factor
-                }else{
-                  setmobilewidth(19)
-                  const increaseFactor = (48 + mobiledistance) * 0.181; // Calculate increase factor
-                  setmobilewidth((prevWidth) => prevWidth + increaseFactor); // Increase width based on the factor
-                }
+//             } else if (mobiledistance < 48) {
+//                 if(mobiledistance <= 22){
+//                   setmobilewidth(36)
+//                   const increaseFactor = (22 + mobiledistance) * 0.151; // Calculate increase factor
+//                   setmobilewidth((prevWidth) => prevWidth + increaseFactor); // Increase width based on the factor
+//                 }else if(mobiledistance <= 34){
+//                   setmobilewidth(24)
+//                   const increaseFactor = (34 + mobiledistance) * 0.161; // Calculate increase factor
+//                   setmobilewidth((prevWidth) => prevWidth + increaseFactor); // Increase width based on the factor
+//                 }else if(mobiledistance <= 42){
+//                   setmobilewidth(22)
+//                   const increaseFactor = (42 + mobiledistance) * 0.171; // Calculate increase factor
+//                   setmobilewidth((prevWidth) => prevWidth + increaseFactor); // Increase width based on the factor
+//                 }else{
+//                   setmobilewidth(19)
+//                   const increaseFactor = (48 + mobiledistance) * 0.181; // Calculate increase factor
+//                   setmobilewidth((prevWidth) => prevWidth + increaseFactor); // Increase width based on the factor
+//                 }
                 
+//             }
+//         }
+//     };
+//     const adjustglassWidth = () => {
+//       if(!mobiledistance){
+//         if(glassdistance >= 23 && glassdistance <= 28){
+//                 setglassdistancecorrect(true)
+//                 setmobilewidth(58)
+//               }else if(glassdistance >= 29){
+//                 if(glassdistance >= 40){
+//                   setmobilewidth(48)
+//                   const decreaseFactor = (glassdistance - 40) * 0.1; // Calculate decrease factor
+//                   setmobilewidth((prevWidth) => prevWidth - decreaseFactor);
+//                 }else if(glassdistance >= 35){
+//                   setmobilewidth(45)
+//                   const decreaseFactor = (glassdistance - 35) * 0.1; // Calculate decrease factor
+//                   setmobilewidth((prevWidth) => prevWidth - decreaseFactor);
+//                 }else{
+//                   setmobilewidth(38)
+//                   const decreaseFactor = (glassdistance - 28) * 0.1; // Calculate decrease factor
+//                   setmobilewidth((prevWidth) => prevWidth - decreaseFactor);
+//                 }
+                
+//               }else if (glassdistance < 23) {
+//                 if(glassdistance < 10){
+//                   setmobilewidth(80)
+//                   const increaseFactor = (10 + glassdistance) * 0.171; // Calculate increase factor
+//                   setmobilewidth((prevWidth) => prevWidth + increaseFactor);
+//                 }else if(glassdistance <= 16){
+//                   setmobilewidth(75)
+//                   const increaseFactor = (16 + glassdistance) * 0.171; // Calculate increase factor
+//                   setmobilewidth((prevWidth) => prevWidth + increaseFactor);
+//                 }else{
+//                   setmobilewidth(65)
+//                   const increaseFactor = (23 + glassdistance) * 0.181; // Calculate increase factor
+//                   setmobilewidth((prevWidth) => prevWidth + increaseFactor);
+//                 }
+//               }
+//       }
+//     }
+//     adjustMobileWidth();
+//     adjustglassWidth();
+// }, [mobiledistance, glassdistance]);
+
+useEffect(() => {
+  const adjustMobileWidth = () => {
+      if (!glassdistance) {
+          let newWidth;
+
+          if (mobiledistance >= 48 && mobiledistance <= 52) {
+              newWidth = 20;
+              setmobiledistancecorrect(true);
+          } else if (mobiledistance > 52) {
+              if (mobiledistance > 90) {
+                  newWidth = 3 - (mobiledistance - 90) * 1.25;
+              } else if (mobiledistance > 80) {
+                  newWidth = 4 - (mobiledistance - 80) * 1.25;
+              } else if (mobiledistance > 70) {
+                  newWidth = 5 - (mobiledistance - 70) * 1.25;
+              } else if (mobiledistance > 60) {
+                  newWidth = 6 - (mobiledistance - 60) * 1.25;
+              } else {
+                  newWidth = 7 - (mobiledistance - 52) * 1.25;
+              }
+          } else if (mobiledistance < 48) {
+              if (mobiledistance <= 22) {
+                  newWidth = 36 + (22 - mobiledistance) * 1.25;
+              } else if (mobiledistance <= 34) {
+                  newWidth = 24 + (34 - mobiledistance) * 1.25;
+              } else if (mobiledistance <= 42) {
+                  newWidth = 22 + (42 - mobiledistance) * 1.25;
+              } else {
+                  newWidth = 19 + (48 - mobiledistance) * 1.25;
+              }
+          }
+
+          // Increment the newWidth by 1.45
+          newWidth += 1.45;
+
+          setmobilewidth(newWidth);
+      }
+  };
+  const adjustglassWidth = () => {
+    if (!mobiledistance) {
+        let newWidth;
+        if (glassdistance >= 23 && glassdistance <= 28) {
+            setglassdistancecorrect(true)
+            newWidth = 58;
+        } else if (glassdistance >= 29) {
+            if (glassdistance >= 40) {
+                newWidth = 48 - (glassdistance - 40) * 1.25;
+            } else if (glassdistance >= 35) {
+                newWidth = 45 - (glassdistance - 35) * 1.25;
+            } else {
+                newWidth = 38 - (glassdistance - 28) * 1.25;
+            }
+        } else if (glassdistance < 23) {
+            if (glassdistance < 10) {
+                newWidth = 80 + (10 - glassdistance) * 1.25;
+            } else if (glassdistance <= 16) {
+                newWidth = 75 + (16 - glassdistance) * 1.25;
+            } else {
+                newWidth = 65 + (23 - glassdistance) * 1.25;
             }
         }
-    };
-    const adjustglassWidth = () => {
-      if(!mobiledistance){
-        if(glassdistance >= 23 && glassdistance <= 28){
-                setglassdistancecorrect(true)
-                setmobilewidth(58)
-              }else if(glassdistance >= 29){
-                if(glassdistance >= 40){
-                  setmobilewidth(48)
-                  const decreaseFactor = (glassdistance - 40) * 0.1; // Calculate decrease factor
-                  setmobilewidth((prevWidth) => prevWidth - decreaseFactor);
-                }else if(glassdistance >= 35){
-                  setmobilewidth(45)
-                  const decreaseFactor = (glassdistance - 35) * 0.1; // Calculate decrease factor
-                  setmobilewidth((prevWidth) => prevWidth - decreaseFactor);
-                }else{
-                  setmobilewidth(38)
-                  const decreaseFactor = (glassdistance - 28) * 0.1; // Calculate decrease factor
-                  setmobilewidth((prevWidth) => prevWidth - decreaseFactor);
-                }
-                
-              }else if (glassdistance < 23) {
-                if(glassdistance < 10){
-                  setmobilewidth(80)
-                  const increaseFactor = (10 + glassdistance) * 0.171; // Calculate increase factor
-                  setmobilewidth((prevWidth) => prevWidth + increaseFactor);
-                }else if(glassdistance <= 16){
-                  setmobilewidth(75)
-                  const increaseFactor = (16 + glassdistance) * 0.171; // Calculate increase factor
-                  setmobilewidth((prevWidth) => prevWidth + increaseFactor);
-                }else{
-                  setmobilewidth(65)
-                  const increaseFactor = (23 + glassdistance) * 0.181; // Calculate increase factor
-                  setmobilewidth((prevWidth) => prevWidth + increaseFactor);
-                }
-              }
-      }
+
+        // Increment the newWidth by 1.45
+        newWidth += 1.45;
+
+        setmobilewidth(newWidth);
     }
-    adjustMobileWidth();
-    adjustglassWidth();
+};
+
+  adjustMobileWidth();
+  adjustglassWidth();
 }, [mobiledistance, glassdistance]);
 
 
@@ -543,7 +616,7 @@ const CameraComponent = () => {
         <>
           <div className="distance-wrap text-center">
           <div className="inner-distance">
-            <img src="/images/mobile_images/distance04.png" alt="" />
+            <img src="/images/mobile_images/distance-equal-1.png" alt="" />
             <div className="mobile-movewrap"  style={{ left: mobiledistancecorrect ? '19%': `${mobilewidth}%` }}>
               <div className="inner-move-mob">
               
@@ -571,8 +644,8 @@ const CameraComponent = () => {
         <>
           <div className="distance-wrap text-center">
           <div className="inner-distance">
-            <img src="/images/mobile_images/distance04.png" alt="" />
-            <div className="mobile-movewrap"  style={{ left: glassdistancecorrect ? '58%': `${mobilewidth}%` }}>
+            <img src="/images/mobile_images/distance-equal-1.png" alt="" />
+            <div className="mobile-movewrap"  style={{ left: glassdistancecorrect ? '56%': `${mobilewidth}%` }}>
               <div className="inner-move-mob">
               
               {glassdistancecorrect ? (
